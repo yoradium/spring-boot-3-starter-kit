@@ -1,7 +1,7 @@
 package com.yoradium.api.authentication;
 
-import com.yoradium.api.authentication.dto.AuthenticationRequest;
-import com.yoradium.api.authentication.dto.AuthenticationResponse;
+import com.yoradium.api.authentication.dto.AuthenticateRequest;
+import com.yoradium.api.authentication.dto.AuthenticateResponse;
 import com.yoradium.api.authentication.dto.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,12 +17,12 @@ public class AuthenticationController {
     private final AuthenticationService service;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<AuthenticateResponse> register(@RequestBody RegisterRequest request) {
         return ResponseEntity.ok(service.register(request));
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
+    public ResponseEntity<AuthenticateResponse> authenticate(@RequestBody AuthenticateRequest request) {
         return ResponseEntity.ok(service.authenticate(request));
     }
 }
